@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # update using db connection info
-conn = psycopg2.connect(host='projectpandemic.c2yhomhldxy6.us-east-2.rds.amazonaws.com',user='root',password='Sowmya123$',dbname='corona')
+conn = psycopg2.connect(host='hospitalutil.cuo7ivhfh3jn.us-east-1.rds.amazonaws.com',user='root',password='postgress',dbname='hospitalutil')
 cur = conn.cursor()
 
 
@@ -15,15 +15,15 @@ cur = conn.cursor()
 def welcome():
     """List all available api routes."""
     return (
-       f"<h2>Welcome to Pandemic API </h2><br/>"
+       f"<h2>Welcome to Hospital API </h2><br/>"
         f"Available Routes:<br/>"
-        f"/api/v1.0/pandemic/corona<n><br/>"
+        f"/api/v1.0/pandemic/hospital<n><br/>"
     )
 
-@app.route("/api/v1.0/pandemic/corona")
+@app.route("/api/v1.0/pandemic/hospital")
 def corona():
     try:
-        cur.execute('SELECT * FROM pandemic_corona')
+        cur.execute('SELECT * FROM hospitalutil')
         values = cur.fetchall()
 
         if values != []:
