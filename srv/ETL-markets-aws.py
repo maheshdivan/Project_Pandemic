@@ -23,7 +23,6 @@ with engine.connect() as connection:
 
 def writeData(data): 
     data.to_sql(name='index_table', con=engine, if_exists='append', index=False)
-    data.to_csv('out.csv', index=False)
     
 # Load TimeSeries object and unpack Alphavantage timeseries into dataframe
 # Rename columns for easier reading and reset index value
@@ -36,3 +35,7 @@ for ticker in tickers:
     data['change'] = data.groupby('ticker').close.pct_change()
     data = data.reset_index()
     writeData(data)
+
+# Read all records from database and write to markets.csv
+df = pd.read_sql_query('select * from index_table', con=engine)
+df.to_csv('markets.csv', index=False)
