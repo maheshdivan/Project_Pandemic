@@ -1,0 +1,33 @@
+body, html { 
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(43, 43, 43) !important;
+}
+
+.button-title {
+    position: absolute;
+    display: inline-block;
+    top: 40%;
+    left: 50%;
+    font-size: 2em;
+    color: #fcfcfc;
+    text-align: center;
+    line-height: 40px;
+    margin-left:-155px;
+}
+
+.button-enter { 
+    position:absolute; 
+    display: inline-block;
+    top:50%; 
+    left:50%; 
+    width:150px; 
+    color: #fcfcfc !important;
+    border: 2px solid #fcfcfc; 
+    border-radius: 25%;
+    text-align: center;
+    line-height: 40px; 
+    margin-top:-20px; 
+    margin-left:-75px; 
+  }
