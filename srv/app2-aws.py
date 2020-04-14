@@ -41,9 +41,9 @@ def market():
         
 @app.route('/getCSV')
 def plot_csv():
-    return send_file('out.csv',
+    return send_file('markets.csv',
                      mimetype='text/csv',
-                     attachment_filename='out.csv',
+                     attachment_filename='markets.csv',
                      as_attachment=True)
 
 if __name__ == '__main__':
