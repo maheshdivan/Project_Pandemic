@@ -36,13 +36,11 @@ class VoteClassifier(ClassifierI):
 short_pos = open("positive.txt","r").read()
 short_neg = open("negative.txt","r").read()
 
-# move this up here
 all_words = []
 documents = []
 
 
 #  j is adject, r is adverb, and v is verb
-#allowed_word_types = ["J","R","V"]
 allowed_word_types = ["J"]
 
 for p in short_pos.split('\n'):
@@ -138,12 +136,6 @@ print("LinearSVC_classifier accuracy percent:", (nltk.classify.accuracy(LinearSV
 save_classifier = open("pickled_algos/LinearSVC_classifier5k.pickle","wb")
 pickle.dump(LinearSVC_classifier, save_classifier)
 save_classifier.close()
-
-
-##NuSVC_classifier = SklearnClassifier(NuSVC())
-##NuSVC_classifier.train(training_set)
-##print("NuSVC_classifier accuracy percent:", (nltk.classify.accuracy(NuSVC_classifier, testing_set))*100)
-
 
 SGDC_classifier = SklearnClassifier(SGDClassifier())
 SGDC_classifier.train(training_set)
